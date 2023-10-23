@@ -1,9 +1,20 @@
 //your JS code here. If required.
-ar c = document.getElementById("level");
-var level = 0;
-while (c.parentNode) {
-  level++;
-  c = c.parentNode;
-}
-var message = "The level of the element is: " + level;
-alert(message);
+const element = document.getElementById('level');
+
+function findDOMLevel(element)
+	{
+		let level = 1;
+		let currEle = element;
+
+		while(currEle!== document.documentElement)
+		{
+			currEle = currEle.parentElement;
+			level++;
+		}
+
+		return level;
+	}
+
+const domLevel = findDOMLevel(element);
+
+alert("The level of the element is: " + domLevel);
